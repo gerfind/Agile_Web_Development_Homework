@@ -62,7 +62,7 @@ Black wins
 输入: 
 Black: `2H 3H 5H 9H KH` White: `2C 3H 4S 5C 6H`
 输出: 
-Black wins
+White wins
 
 输入: 
 Black: `2H 3D 5S 9C KD` White: `2D 3H 5C 9S KH`
