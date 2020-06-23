@@ -29,7 +29,7 @@ class Player:
 
     def Royale(self):
         '''等级7'''
-        if self.color[0] == self.color[1] == self.color[2] == self.color[3] == self.color[4] and self.number[1] - self.number[0] ==  self.number[2] - self.number[1] == self.number[3] - self.number[2] == self.number[4] - self.number[3] == 1:
+        if self.color[0] == self.color[1] == self.color[2] == self.color[3] == self.color[4] and self.number[1] - self.number[0] == self.number[2] - self.number[1] == self.number[3] - self.number[2] == self.number[4] - self.number[3] == 1:
             self.level = 7
             self.cmplist = self.number
 
@@ -41,27 +41,27 @@ class Player:
 
     def Spectrum(self):
         '''等级5'''
-        if self.number[1] - self.number[0] ==  self.number[2] - self.number[1] == self.number[3] - self.number[2] == self.number[4] - self.number[3] == 1:
+        if self.number[1] - self.number[0] == self.number[2] - self.number[1] == self.number[3] - self.number[2] == self.number[4] - self.number[3] == 1:
             self.level = 5
             self.cmplist = self.number
 
     def Threeofakind(self):
         '''等级4并带序列'''
-        for i in range(1,4):
+        for i in range(1, 4):
             if self.number[i] == self.number[i-1] == self.number[i+1]:
                 pair_point = self.number[i]
                 return_list = []
                 for i in self.number:
                     if i != pair_point:
                         return_list.append(i)
-                while len(return_list)<5:
+                while len(return_list) < 5:
                     return_list.append(pair_point)
                 self.level = 4
                 self.cmplist = return_list
 
     def Pair(self):
         '''等级2并带序列'''
-        for i in range(1,5):
+        for i in range(1, 5):
             if self.number[i] == self.number[i-1]:
                 pair_point = self.number[i]
                 return_list = []
@@ -76,7 +76,7 @@ class Player:
     def Two_Pair(self):
         '''等级3并带序列'''
         returned_list = self.cmplist
-        for i in range(1,3):
+        for i in range(1, 3):
             if returned_list[i] == returned_list[i-1]:
                 pair_point = returned_list[i]
                 return_list = []
@@ -105,7 +105,6 @@ Black.Flush()
 Black.Royale()
 
 
-
 White = Player()
 White.hand = Input_list[7:12]
 White.add_colors()
@@ -119,17 +118,19 @@ White.Spectrum()
 White.Flush()
 White.Royale()
 
+
 def Choose_winner():
     if Black.level > White.level:
         return 'Black wins'
     elif Black.level < White.level:
         return 'White wins'
     else:
-        for i in range(4,1,-1):
+        for i in range(4, 1, -1):
             if Black.cmplist[i] > White.cmplist[i]:
                 return 'Black wins'
             elif Black.cmplist[i] < White.cmplist[i]:
                 return 'White wins'
         return 'Tie'
+
 
 print(Choose_winner())
