@@ -125,7 +125,7 @@ def Choose_winner():
     elif Black.level < White.level:
         return 'White wins'
     else:
-        for i in range(4, 1, -1):
+        for i in range(4, -1, -1):
             if Black.cmplist[i] > White.cmplist[i]:
                 return 'Black wins'
             elif Black.cmplist[i] < White.cmplist[i]:
